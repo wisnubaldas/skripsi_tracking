@@ -39,6 +39,7 @@ Setup
 
 Struktur Folder
 =====
+```html
 application
     - config
     - controllers
@@ -59,3 +60,4 @@ asset
     - img
     - js
     - plugins
+```
