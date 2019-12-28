@@ -36,3 +36,26 @@ Setup
     ```http://localhost/skripsi/tracking``` login dengan user ```admin@admin.com``` dan password ```admin```
     
     <img src="https://github.com/wisnubaldas/skripsi_tracking/blob/master/tracjk.png">
+
+Struktur Folder
+=====
+application
+    - config
+    - controllers
+        - master
+        - shops
+    - models
+    - routes
+    - views
+      - errors
+      - master
+      - pos
+      - simpleauth
+      - shops
+      - template
+
+asset
+    - css
+    - img
+    - js
+    - plugins

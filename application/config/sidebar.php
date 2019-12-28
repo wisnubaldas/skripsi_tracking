@@ -25,12 +25,12 @@ $config['sidebar'] = [
 		],
 		[
 			'icon' => 'fa fa-gift',
-			'title' => 'Jualan',
+			'title' => 'Delivery',
 			'url' => 'javascript:;',
 			'caret' => true,
 			'sub_menu' => [[
-				'url' => 'shops/order',
-				'title' => 'Order'
+				'url' => 'transaction/order',
+				'title' => 'Take Order'
 			]]
 		]
 	]

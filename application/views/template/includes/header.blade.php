@@ -9,7 +9,7 @@
 <div id="header" class="header {{ $headerClass }}">
 	<!-- begin navbar-header -->
 	<div class="navbar-header">
-		<a href="{{route('homepage')}}" class="navbar-brand"><span class="navbar-logo"></span> <b>PoS</b> aWs</a>
+		<a href="{{route('homepage')}}" class="navbar-brand"><span class="navbar-logo"></span> {{env('APP_NAME')}}</a>
 		@if (!$sidebarHide)
 		<button type="button" class="navbar-toggle" data-click="sidebar-toggled">
 			<span class="icon-bar"></span>

@@ -23,7 +23,7 @@ class Migration_create_orders_table extends CI_Migration
                         'auto_increment' => TRUE
                 ),
                 'invoice_number' => array(
-                    'type' => 'INT',
+                    'type' => 'VARCHAR',
                     'constraint' => 100,
                     'unsigned' => TRUE,
                 ),
@@ -76,11 +76,15 @@ class Migration_create_orders_table extends CI_Migration
                     'type' => 'TEXT',
                     'null' => TRUE,
                 ),
-                'lat' => array(
+                'latitude' => array(
                     'type' => 'VARCHAR',
                     'constraint' => '100',
                 ),
-                'long' => array(
+                'longitude' => array(
+                    'type' => 'VARCHAR',
+                    'constraint' => '100',
+                ),
+                'status' => array(
                     'type' => 'VARCHAR',
                     'constraint' => '100',
                 ),
@@ -122,8 +126,9 @@ class Migration_create_orders_table extends CI_Migration
             $billing_company = $faker->company;
             $billing_street_address = $faker->address;
             $payment_method = $faker->randomElement(['cash','credit']);
-            $lat = $faker->latitude($min = -6.21462, $max = 106.84513);
-            $long = $faker->longitude($min = -6.21462, $max = 106.84513);
+            $latitude = $faker->latitude($min = -6.30000, $max = -6.120000);
+            $longitude = $faker->longitude($min = 106.700000, $max = 106.900000);
+            $status = $faker->randomElement(['complete','delivery','pickup']);
             $dd = compact('invoice_number',
             'customers_id',
             'delivery_name',
@@ -137,8 +142,9 @@ class Migration_create_orders_table extends CI_Migration
             'billing_company',
             'billing_street_address',
             'payment_method',
-            'lat',
-            'long');
+            'latitude',
+            'longitude',
+            'status');
             $this->db->insert('orders', $dd);
         } catch (\Throwable $th) {
             dump($th);
