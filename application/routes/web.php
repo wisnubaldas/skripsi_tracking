@@ -28,10 +28,13 @@ Route::group('master',['namespace' => 'master','middleware' => ['SimpleAuthMiddl
 	});
 });
 
-Route::group('shops',['namespace' => 'shops','middleware' => ['SimpleAuthMiddleware']],function(){
+Route::group('transaction',['namespace' => 'transaction','middleware' => ['SimpleAuthMiddleware']],function(){
 	Route::group('order', function()
 	{
 		Route::get('/','OrderController@index')->name('order');
+		Route::match(['GET', 'POST'],'/'.hash("gost", 'create'),'OrderController@create')->name('order.create');
+		Route::match(['GET', 'POST'],'/{id}/'.hash("gost", 'edit'),'OrderController@edit')->name('order.take');
+		Route::get(hash("sha256", 'datatables'),'OrderController@grid')->name('order.grid');
 	});
 
 });
